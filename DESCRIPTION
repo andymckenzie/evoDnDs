@@ -1,0 +1,10 @@
+Package: getDnDs
+Title: Queries biomaRt and ensembl to find the dn/ds values for a character vector of gene names.
+Version: 0.1
+Authors@R: "'Andrew McKenzie <amckenz@gmail.com> [aut, cre]'"
+Description: This package takes as arguments a character vector of gene names (HGNC symbols) and a species name. It then queries biomaRt using the ensembl database and finds the homologs of that gene and the dn/ds values for each. There can be 0, 1, or > 1 homologs with non-NA dn/ds scores. If there are 0, it notes that there are none to match it to the gene name and goes to the next gene. If there is 1, it notes its dn and ds scores. If there are > 1, it takes the median of each set and notes them. Currently the search is relatively slow since biomaRt is queries one gene at a time. This is because hgnc symbols is not a valid attribute when the homolog numbers are also called, so there needs to be a mechanism to match gene symbols to dn/ds values at the end, but this will be updated in future versions. 
+Depends: R (>= 3.1.1)
+Imports: 
+	biomaRt
+License: GNU GPL v2.0
+LazyData: true
